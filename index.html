@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <title>Frontend Mentor | [Challenge Name Here]</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution {
+      font-size: 11px;
+      text-align: center;
+    }
+
+    .attribution a {
+      color: hsl(228, 45%, 44%);
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- titulo y toogle container -->
+  <div class="container">
+
+    <div class="titulo">
+      <h1>Our Pricing</h1>
+    </div>
+
+    <div class="container_toggle">
+      Annually
+      <div class="toggle-wrapper">
+
+        <input id="provide-muffins" name="provide_muffins" class="toggle" type="checkbox" checked />
+        <label for="provide-muffins" class="toggle--label"></label>
+        <div class="foux-toggle"></div>
+      </div>
+      Monthly
+    </div>
+
+    <div class="promo_container">
+      <!-- basic container -->
+      <div class="card">
+        <h2>
+          Basic
+        </h2>
+        <p class="precio mensual">
+          <span>&dollar;</span>19.99
+        </p>
+
+        <p class="precio anual">
+          <span>&dollar;</span>199.99
+        </p>
+
+        <hr>
+        <p>500 GB Storage</p>
+        <hr>
+        <p>2 Users Allowed</p>
+        <hr>
+        <p>up to 3 GB</p>
+        <hr>
+        <a class="boton" href="#">LEARN MORE</a>
+      </div>
+
+      <!-- profesional container -->
+      <div class="card featured">
+        <h2>
+          Professional
+        </h2>
+
+        <p class="precio mensual">
+          <span>&dollar;</span>24.99
+        </p>
+
+        <p class="precio anual">
+          <span>&dollar;</span>249.99
+        </p>
+        <hr>
+        <p>1 TB Storage</p>
+        <hr>
+        <p>5 Users Allowed</p>
+        <hr>
+        <p>Send up to 10 GB</p>
+        <hr>
+        <a class="boton" href="#">LEARN MORE</a>
+
+      </div>
+
+      <!-- master container -->
+      <div class="card">
+        <h2>
+          Master
+        </h2>
+        <p class="precio mensual">
+          <span>&dollar;</span>39.99
+        </p>
+        <p class="precio anual">
+          <span>&dollar;</span>399.99
+        </p>
+        <hr>
+        <p>2 TB Storage</p>
+        <hr>
+        <p>10 Users Allowed</p>
+        <hr>
+        <p>Send up to 20 GB</p>
+        <hr>
+        <a class="boton" href="#">LEARN MORE</a>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </footer>
+</body>
+
+</html>
