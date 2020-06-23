@@ -8,11 +8,10 @@
 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <link rel="stylesheet" href="style.css">
-  <script defer src="app.js"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
 
-  <title>Frontend Mentor | [Challenge Name Here]</title>
+  <title>Frontend Mentor | Pricing component with toggle</title>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
@@ -30,27 +29,29 @@
 
 <body>
   <!-- titulo y toogle container -->
-  <div class="container">
+  <main>
 
     <div class="titulo">
       <h1>Our Pricing</h1>
     </div>
-
-    <div class="container_toggle">
-      Annually
-
-      <div class="toggle-wrapper">
-        <label class="toggle_label" for="toggle"></label>
-        <div class="toggle_button-wrapper">
-          <input type="checkbox" class="toggle_checkbox" name="toggle">
-          <span class="toggle_button"></span>
-        </div>
-      </div>
-
-      Monthly
+    
+    <input type="checkbox" id="toggle">
+    <div class="toggle-container">
+      <span>Anually</span>
+      <label for="toggle" class="toggle-button">
+      </label>
+      <span>Monthly</span>
     </div>
-
+    <!--  
+    <input class="toggle-check" type="checkbox" name="pricing-checkbox" id="pricing-checkbox">
+    <label class="pricing" for="pricing-checkbox">
+      Annually
+      <span class="toggle-button"></span>
+      Monthly
+    </label>
+-->
     <div class="promo_container">
+      <!-- container cards -->
       <!-- basic container -->
       <div class="card">
         <h2>
@@ -120,12 +121,12 @@
       </div>
     </div>
 
-  </div>
+  </main>
 
   <footer>
     <div class="attribution">
       Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>.
-      Coded by <a href="#">Your Name Here</a>.
+      Coded by <a href="https://github.com/ttisurus" target="_blank">Arrow Design</a>.
     </div>
   </footer>
 </body>

@@ -5,21 +5,17 @@ body {
     background-repeat: no-repeat;
     background-color: hsl(240, 78%, 98%);
 }
+main{
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
 
 /* Falta media query, esto es para desktop*/
 .titulo {
     text-align: center;
     color:hsl(232, 13%, 33%);
     font-size: 1rem;
-}
-
-.container_toggle {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: hsl(234, 14%, 74%);
-    margin: 48px 0 65px 0; 
-    font-size: 1rem;   
 }
 
 .promo_container{
@@ -29,7 +25,8 @@ body {
 }
 
 .card {
-    max-width: 350px;
+    max-width: 550px;
+    min-width: 350px;
     background-color: rgb(255,255,255);
     display: flex;
     flex-flow: column;
@@ -103,73 +100,61 @@ body {
 }
 
 /* Switch */
-
-.toggle_label {
-    color: hsl(0, 0%, 100%);
+/*  
+.toggle-check {
+    display: none;
 }
 
-.toggle-wrapper {
-    display: flex;
-    align-items: center;
-    margin: 1rem;
-}
-
-.toggle_button-wrapper {
-    position: relative;
-    display: flex;
-}
-
-.toggle_button {
-    width: 3.125rem;
-    height: 1.75rem;
-    border-radius: 2.5rem;
-    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
-    display: inline-block;
-    padding: 0.125rem;
-    box-sizing: border-box;
-    
-}
-
-.toggle_button::after {
-    content: '';
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 1.5rem;
-    background-color: hsl(0, 0%, 100%);
+.toggle-check:checked~.promo_container .card p:first-of-type {
     display: block;
 }
 
-.toggle_checkbox:hover{
-    cursor: pointer;
+.toggle-check:checked~.promo_container .card p:nth-of-type(2) {
+    display: none;
 }
 
-.toggle_checkbox {
-    z-index: 1;
+.toggle-check:checked~.pricing .toggle-button::before {
+    right: 5px;
+    left: initial;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    color: hsl(234, 14%, 74%);
+    margin: 48px 0 65px 0; 
+    font-size: 1rem;
+}
+
+.toggle-button {
+    margin: 0 22px;
+    display: block;
+    width: 55px;
+    height: 33px;
+    background-image: linear-gradient(to right, #a3a8f0, #696fdd);
+    background-color: #b3b5c6;
+    border-radius: 40px;
+    position: relative;
+    cursor: pointer;    
+}
+
+.toggle-button::before {
+    width: 24px;
+    height: 24px;
     position: absolute;
-    width: 3.125rem;
-    height: 1.75rem;
-    right: 0;
-    top: 0;
-    margin: 0;
-    opacity: 0;
+    display: block;
+    content: "";
+    background-color: #fff;
+    top: 4px;
+    left: 5px;
+    border-radius: 50%;
 }
 
-.toggle_checkbox:checked + 
-.toggle_button {
-    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
-}
-
-.toggle_checkbox:checked + 
-.toggle_button::after {
-    margin-left: auto;
-    background-color: hsl(0, 0%, 100%);
-}
-
-.toggle_button-wrapper:active{
-    color: hsl(0, 0%, 100%);
+.toggle-button:active {
+    background-image: linear-gradient(to right, #a3a8f0, #696fdd);
     opacity: 0.5;
 }
-
+*/
 
 /* Responsive 375px */
 
@@ -190,4 +175,59 @@ body {
     .card.featured{
         padding:1em;
     }
+}
+  /*checkbox*/
+  #toggle {
+    display: none;
+  }
+
+  /* es un div que contiene al label y los textos "monthly" y "yearly" (para que no sean parte del label)*/
+  .toggle-container {
+    display: flex;
+    align-items: center;
+    color: hsl(234, 14%, 74%);
+    margin: 48px 0 65px 0; 
+    font-size: 1rem;
+  }
+
+  /* El boton que vé el usuario */
+  .toggle-button {
+    width: 40px;
+    padding: 3px 5px;
+    border-radius: 999px;
+    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    margin: 0 0.5em;
+    display: flex;
+    cursor: pointer;
+    transition-property: box-shadow;
+    transition-duration: 1s;
+  }
+
+  /* Esto es el circulo blanco */
+  .toggle-button::after {
+    content: "";
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 1);
+    transition-property: margin-left;
+    transition-duration: 0.5s;
+  }
+
+  /*Efecto cuando cliquean o tocan el deslizable*/
+  .toggle-button:active::after, .toggle-button:active{
+    filter: brightness(120%);
+  }
+  
+  /* Efecto cuando está tildado el checkbox*/
+#toggle:checked ~ .toggle-container .toggle-button::after {
+    margin-left: 20px;
+}
+  
+#toggle:checked~.promo_container .card p:first-of-type {
+    display: block;
+}
+
+#toggle:checked~.promo_container .card p:nth-of-type(2) {
+    display: none;
 }
