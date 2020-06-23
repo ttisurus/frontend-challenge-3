@@ -5,17 +5,16 @@ body {
     background-repeat: no-repeat;
     background-color: hsl(240, 78%, 98%);
 }
-main{
+
+main {
     display: flex;
     flex-flow: column;
     align-items: center;
 }
 
-/* Falta media query, esto es para desktop*/
 .titulo {
-    text-align: center;
     color:hsl(232, 13%, 33%);
-    font-size: 1rem;
+    font-size: 2rem;
 }
 
 .promo_container{
@@ -34,7 +33,6 @@ main{
     box-sizing: border-box;
     text-align: center;
     color:hsl(232, 13%, 33%);
-    flex-grow: 1;
     border-radius: 10px;
     box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.06), 0px 4px 8px rgba(0, 0, 0, 0.06), 0px 16px 24px rgba(0, 0, 0, 0.04), 0px 24px 32px rgba(0, 0, 0, 0.04);
 }
@@ -55,7 +53,7 @@ main{
     font-size: 0.5em;
 }
 
-.monthly.price{
+.monthly.price {
     display: none;
 }
 
@@ -71,15 +69,15 @@ main{
 }
 
 .boton {
+    cursor: pointer;
     border-radius: 5px;
     letter-spacing: 0.13em;
     padding: 1em;
     text-decoration: none;
-    text-align: center;
     margin: 1em;
-    box-sizing: border-box;
     color: rgb(255,255,255);
     background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+    user-select: none;
 }
 
 .boton:active{
@@ -99,70 +97,64 @@ main{
     color: rgb(255,255,255);
 }
 
-/* Switch */
-/*  
-.toggle-check {
-    display: none;
+/*checkbox*/
+#toggle {
+  display: none;
 }
 
-.toggle-check:checked~.promo_container .card p:first-of-type {
-    display: block;
+/* es un div que contiene al label y los textos "monthly" y "yearly" (para que no sean parte del label)*/
+.toggle-container {
+  display: flex;
+  align-items: center;
+  color: hsl(234, 14%, 74%);
+  margin: 48px 0 65px 0; 
 }
 
-.toggle-check:checked~.promo_container .card p:nth-of-type(2) {
-    display: none;
-}
-
-.toggle-check:checked~.pricing .toggle-button::before {
-    right: 5px;
-    left: initial;
-}
-
-label {
-    display: flex;
-    align-items: center;
-    color: hsl(234, 14%, 74%);
-    margin: 48px 0 65px 0; 
-    font-size: 1rem;
-}
-
+/* El boton que vé el usuario */
 .toggle-button {
-    margin: 0 22px;
-    display: block;
-    width: 55px;
-    height: 33px;
-    background-image: linear-gradient(to right, #a3a8f0, #696fdd);
-    background-color: #b3b5c6;
-    border-radius: 40px;
-    position: relative;
-    cursor: pointer;    
+  width: 40px;
+  padding: 3px 5px;
+  border-radius: 999px;
+  background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
+  margin: 0 0.5em;
+  display: flex;
+  cursor: pointer;
+  transition-property: box-shadow;
+  transition-duration: 1s;
 }
 
-.toggle-button::before {
-    width: 24px;
-    height: 24px;
-    position: absolute;
-    display: block;
-    content: "";
-    background-color: #fff;
-    top: 4px;
-    left: 5px;
-    border-radius: 50%;
+/* Esto es el circulo blanco */
+.toggle-button::after {
+  content: "";
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 1);
+  transition-property: margin-left;
+  transition-duration: 0.5s;
 }
 
-.toggle-button:active {
-    background-image: linear-gradient(to right, #a3a8f0, #696fdd);
-    opacity: 0.5;
+/*Efecto cuando cliquean o tocan el deslizable*/
+.toggle-button:active::after, .toggle-button:active{
+  filter: brightness(120%);
 }
-*/
 
-/* Responsive 375px */
+/* Efecto cuando está tildado el checkbox*/
+#toggle:checked ~ .toggle-container .toggle-button::after {
+  margin-left: 20px;
+}
+
+#toggle:checked~.promo_container .card p:first-of-type {
+  display: flex;
+}
+
+#toggle:checked~.promo_container .card p:nth-of-type(2) {
+  display: none;
+}
+
+/* Responsive */
 
 @media screen and (max-width: 1100px){
-    .titulo {
-        text-align: center;
-    }
-
     .promo_container {
         display: flex;
         flex-direction: column;
@@ -175,59 +167,4 @@ label {
     .card.featured{
         padding:1em;
     }
-}
-  /*checkbox*/
-  #toggle {
-    display: none;
-  }
-
-  /* es un div que contiene al label y los textos "monthly" y "yearly" (para que no sean parte del label)*/
-  .toggle-container {
-    display: flex;
-    align-items: center;
-    color: hsl(234, 14%, 74%);
-    margin: 48px 0 65px 0; 
-    font-size: 1rem;
-  }
-
-  /* El boton que vé el usuario */
-  .toggle-button {
-    width: 40px;
-    padding: 3px 5px;
-    border-radius: 999px;
-    background: linear-gradient(to right, hsl(236, 72%, 79%), hsl(237, 63%, 64%));
-    margin: 0 0.5em;
-    display: flex;
-    cursor: pointer;
-    transition-property: box-shadow;
-    transition-duration: 1s;
-  }
-
-  /* Esto es el circulo blanco */
-  .toggle-button::after {
-    content: "";
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 1);
-    transition-property: margin-left;
-    transition-duration: 0.5s;
-  }
-
-  /*Efecto cuando cliquean o tocan el deslizable*/
-  .toggle-button:active::after, .toggle-button:active{
-    filter: brightness(120%);
-  }
-  
-  /* Efecto cuando está tildado el checkbox*/
-#toggle:checked ~ .toggle-container .toggle-button::after {
-    margin-left: 20px;
-}
-  
-#toggle:checked~.promo_container .card p:first-of-type {
-    display: block;
-}
-
-#toggle:checked~.promo_container .card p:nth-of-type(2) {
-    display: none;
 }
